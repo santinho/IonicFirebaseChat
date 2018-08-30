@@ -1,3 +1,6 @@
+
+import { CustomLoggedHeaderComponent } from './../components/custom-logged-header/custom-logged-header';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,6 +15,11 @@ import { AngularFireModule, FirebaseAppConfig} from 'angularfire2';
 import { SignupPage } from '../pages/signup/signup';
 import { SignupPageModule } from '../pages/signup/signup.module';
 import { UserService } from '../providers/user/user.service';
+import { AuthService } from '../providers/auth/auth.service';
+import { SigninPageModule } from '../pages/signin/signin.module';
+import { PipesModule } from '../pipes/pipes.module';
+import { ChatPage } from '../pages/chat/chat';
+import { ChatProvider } from '../providers/chat/chat';
 
 const firebaseAppConfig: FirebaseAppConfig = {
   apiKey: "AIzaSyBT-uBl1_lmldwJuhmx_eJomrBRVGPlSqQ",
@@ -26,7 +34,9 @@ const firebaseAppConfig: FirebaseAppConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    CustomLoggedHeaderComponent,
+    ChatPage
   ],
   imports: [
     BrowserModule,
@@ -34,20 +44,26 @@ const firebaseAppConfig: FirebaseAppConfig = {
     AngularFireModule.initializeApp(firebaseAppConfig),
     AngularFireDatabaseModule,
     SignupPageModule,
+    SigninPageModule,
     HttpClientModule,
-
+    PipesModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    SignupPage
+    SignupPage,
+    CustomLoggedHeaderComponent,
+    ChatPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserService,
+    AuthService,
+    AngularFireAuth,
+    ChatProvider
   ]
 })
 export class AppModule {}

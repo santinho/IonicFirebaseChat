@@ -1,3 +1,4 @@
+import { User } from './../../models/user';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -17,6 +18,7 @@ import 'rxjs/add/operator/map'
 export class UserService extends BaseService{
   user: AngularFireObject<User>
   users: AngularFireList<any>
+  usuarioLogado: User;
 
   constructor(public http: HttpClient,
     public af: AngularFireDatabase,

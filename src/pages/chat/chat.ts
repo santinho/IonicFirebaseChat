@@ -23,10 +23,6 @@ export class ChatPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatPage');
-  }
-
   sendMessage(newMessage:string):void{
     this.messages.push(newMessage);
   }

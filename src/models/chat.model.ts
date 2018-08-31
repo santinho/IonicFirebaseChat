@@ -1,7 +1,7 @@
 export class Chat{
   constructor(
     public lastMessage:string,
-    public timestamp:string,
+    public timestamp:any,
     public title:string,
     public photo:string
   ){

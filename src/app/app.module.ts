@@ -19,7 +19,7 @@ import { AuthService } from '../providers/auth/auth.service';
 import { SigninPageModule } from '../pages/signin/signin.module';
 import { PipesModule } from '../pipes/pipes.module';
 import { ChatPage } from '../pages/chat/chat';
-import { ChatProvider } from '../providers/chat/chat';
+import { ChatService } from '../providers/chat/chat.service.';
 
 const firebaseAppConfig: FirebaseAppConfig = {
   apiKey: "AIzaSyBT-uBl1_lmldwJuhmx_eJomrBRVGPlSqQ",
@@ -63,7 +63,7 @@ const firebaseAppConfig: FirebaseAppConfig = {
     UserService,
     AuthService,
     AngularFireAuth,
-    ChatProvider
+    ChatService
   ]
 })
 export class AppModule {}

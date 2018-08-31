@@ -4,6 +4,10 @@ export class User{
     public username:string,
     public email:string,
     public photo:string,
-    public $key: string
   ){}
+
+  public getKey():string{
+    console.log('key',this.username.replace('.',''))
+    return this.username.replace('.','');
+  }
 }
